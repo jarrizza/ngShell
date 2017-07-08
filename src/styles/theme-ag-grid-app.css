@@ -1,0 +1,725 @@
+.ag-grid-app {
+  line-height: 1.8;
+  font-family: "Roboto", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 14px;
+  color: #32373B;
+  /* this is for the rowGroupPanel, that appears along the top of the grid */
+  /* this is for the column drops that appear in the toolPanel */
+}
+
+.ag-grid-app img {
+  vertical-align: middle;
+  border: 0;
+}
+
+.ag-grid-app .ag-root {
+  border: none;
+}
+
+.ag-grid-app .ag-cell-not-inline-editing {
+  padding: 3px;
+}
+
+.ag-grid-app .ag-cell-range-selected-1:not(.ag-cell-focus) {
+  background-color: rgba(120,120,120,0.4);
+}
+
+.ag-grid-app .ag-cell-range-selected-2:not(.ag-cell-focus) {
+  background-color: rgba(80,80,80,0.4);
+}
+
+.ag-grid-app .ag-cell-range-selected-3:not(.ag-cell-focus) {
+  background-color: rgba(40,40,40,0.4);
+}
+
+.ag-grid-app .ag-cell-range-selected-4:not(.ag-cell-focus) {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.ag-grid-app .ag-floating-bottom {
+  border: 1px solid #bbb;
+  border-top: 2px solid #bbb;
+  box-sizing: border-box;
+}
+
+.ag-grid-app .ag-column-moving .ag-cell {
+  -webkit-transition: left 0.2s;
+  -moz-transition: left 0.2s;
+  -o-transition: left 0.2s;
+  -ms-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+.ag-grid-app .ag-column-moving .ag-header-cell {
+  -webkit-transition: left 0.2s;
+  -moz-transition: left 0.2s;
+  -o-transition: left 0.2s;
+  -ms-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+.ag-grid-app .ag-column-moving .ag-header-group-cell {
+  -webkit-transition: left 0.2s;
+  -moz-transition: left 0.2s;
+  -o-transition: left 0.2s;
+  -ms-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+.ag-grid-app .ag-cell-focus {
+  border: 2px solid #31708f;
+}
+
+.ag-grid-app .ag-cell-no-focus {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-right: 1px solid #bbb;
+  border-top: 1px solid transparent;
+  border-left: 1px solid #bbb;
+  border-bottom: 1px solid transparent;
+}
+
+.ag-grid-app .ag-cell-first-right-pinned {
+  border-left: 1px solid #808080;
+}
+
+/* this is the line separating the pinned columns */
+.ag-grid-app .ag-cell-last-left-pinned {
+  border-right: 1px solid #808080;
+}
+
+.ag-grid-app .ag-cell-highlight {
+  border: 1px solid #006400;
+}
+
+.ag-grid-app .ag-cell-highlight-animation {
+  -webkit-transition: border 1s;
+  -moz-transition: border 1s;
+  -o-transition: border 1s;
+  -ms-transition: border 1s;
+  transition: border 1s;
+}
+
+.ag-grid-app .ag-value-change-delta {
+  padding-right: 2px;
+}
+
+.ag-grid-app .ag-value-change-delta-up {
+  color: #006400;
+}
+
+.ag-grid-app .ag-value-change-delta-down {
+  color: #8b0000;
+}
+
+.ag-grid-app .ag-value-change-value {
+  background-color: transparent;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  -ms-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+.ag-grid-app .ag-value-change-value-highlight {
+  background-color: #cec;
+  -webkit-transition: background-color 0.1s;
+  -moz-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  -ms-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
+.ag-grid-app .ag-rich-select {
+  font-size: 14px;
+  border: 1px solid #808080;
+  background-color: #fff;
+}
+
+.ag-grid-app .ag-rich-select-value {
+  padding: 2px;
+}
+
+.ag-grid-app .ag-rich-select-list {
+  border-top: 1px solid #d3d3d3;
+}
+
+.ag-grid-app .ag-rich-select-row {
+  padding: 2px;
+}
+
+.ag-grid-app .ag-rich-select-row-selected {
+  background-color: #bde2e5;
+}
+
+.ag-grid-app .ag-large-text {
+  border: 1px solid #808080;
+}
+
+.ag-grid-app .ag-header-container {
+  margin-right: -2px;
+}
+
+/* This is the grid header background for regular columns */
+.ag-grid-app .ag-header {
+  color: #000;
+  font-weight: bold;
+  /*
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid #bbb;
+  */
+}
+
+/* This is the sort arrow in the header */
+.ag-grid-app .ag-header-icon {
+  color: #000;
+  stroke: none;
+  fill: #31708f;
+}
+
+.ag-grid-app .ag-header-cell {
+  border: 1px solid #bbb;
+}
+
+.ag-grid-app .ag-header-cell-moving .ag-header-cell-label {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+
+.ag-grid-app .ag-header-cell-moving {
+  background-color: #bebebe;
+}
+
+.ag-grid-app .ag-header-group-cell {
+  border-right: 1px solid #808080;
+}
+
+.ag-grid-app .ag-header-group-cell-with-group {
+  border-bottom: 1px solid #808080;
+}
+
+/* This is the positioning of the label in the header cell */
+.ag-grid-app .ag-header-cell-label {
+  /* text-align: left; */
+  font-weight: bold;
+  padding: 8px 0 0 4px;
+}
+
+.ag-grid-app .ag-header-cell-text {
+  padding-left: 2px;
+}
+
+.ag-grid-app .ag-header-group-cell-label {
+  padding: 4px;
+  padding-left: 10px;
+}
+
+.ag-grid-app .ag-header-group-text {
+  margin-right: 2px;
+}
+
+.ag-grid-app .ag-header-cell-menu-button {
+  padding: 2px;
+  margin-top: 4px;
+  border: 1px solid transparent;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: content-box /* When using bootstrap, box-sizing was set to 'border-box' otherwise 'content-box' */;
+  -moz-box-sizing: content-box /* When using bootstrap, box-sizing was set to 'border-box' */;
+  box-sizing: content-box /* When using bootstrap, box-sizing was set to 'border-box' */;
+  line-height: 0px /* normal line height, a space was appearing below the menu button */;
+}
+
+.ag-grid-app .ag-pinned-right-header {
+  border-left: 1px solid #808080;
+}
+
+.ag-grid-app .ag-header-cell-menu-button:hover {
+  border: 1px solid #808080;
+}
+
+.ag-grid-app .ag-body {
+  background-color: white;
+}
+
+.ag-grid-app .ag-body-container {
+  border-bottom: 1px solid #BBB;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+.ag-grid-app .ag-row {
+  outline: none;
+  -webkit-transition: background-color 0.1s;
+  -moz-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  -ms-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
+/* unpinned odd (dark) row */
+.ag-grid-app .ag-row-odd {
+  outline: none;
+  background-color: #f8f8f8;
+}
+
+/* pinned odd (dark) row */
+.ag-grid-app .ag-pinned-left-cols-container .ag-row-odd .display-true {
+  background-color: #e2e2e2;
+}
+
+/* unpinned even (light) row */
+.ag-grid-app .ag-row-even {
+  outline: none;
+  background-color: #fff;
+}
+
+/* pinned even (light) row */
+.ag-grid-app .ag-pinned-left-cols-container .ag-row-even .display-true {
+  background-color: #ededed;
+}
+
+.ag-grid-app .ag-row-selected {
+  background-color: #b0e0e6;
+}
+
+/* This is the header shading for an input column */
+.ag-grid-app .ag-header .input-true,
+.ag-grid-app .ag-no-scrolls .ag-header-container .input-true {
+  background-color: #d9edf7;
+}
+
+.ag-grid-app .ag-pinned-left-header .input-true {
+  background-color: #c1d5df;
+}
+
+/* unpinned odd input rows */
+.ag-grid-app .ag-row-odd .input-true {
+  background-color: #f6f6f6;
+  /*border: 4px #d9edf7 solid;*/
+  box-shadow: 0 0 0 3px #d9edf7 inset;
+}
+.ag-grid-app .ag-pinned-left-cols-container {
+  border-bottom: 1px solid #BBB;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+/* pinned odd input rows */
+.ag-grid-app .ag-pinned-left-cols-container .ag-row-odd .input-true {
+  /*border: 4px #c1d5df solid;*/
+  box-shadow: 0 0 0 3px #c1d5df inset;
+}
+
+/* unpinned even input rows */
+.ag-grid-app .ag-row-even .input-true {
+  /*border: 4px #d9edf7 solid;*/
+  box-shadow: 0 0 0 3px #d9edf7 inset;
+}
+
+/* pinned even input rows */
+.ag-grid-app .ag-pinned-left-cols-container .ag-row-even .input-true {
+  /*border: 4px #c1d5df solid;*/
+  box-shadow: 0 0 0 3px #c1d5df inset;
+}
+
+.ag-grid-app .ag-row .input-true:focus {
+  outline: none;
+  background-color: white;
+  border: 2px #31708f solid;
+}
+
+/* This is the header shading for an unpinned calculated column */
+.ag-grid-app .ag-header .calculated-true {
+  background-color: #f5edc8;
+}
+
+/* This is the header shading for an pinned calculated column */
+.ag-grid-app .ag-pinned-left-header .calculated-true {
+  background-color: #dccd9d;
+}
+
+/* unpinned odd calculated rows */
+.ag-grid-app .ag-row-odd .calculated-true{
+  outline: none;
+  background-color: #f5edc8;
+}
+
+/* pinned odd calculated rows */
+.ag-grid-app .ag-pinned-left-cols-container .ag-row-odd .calculated-true {
+  background-color: #ece1ad;
+}
+
+/* unpinned even calculated rows */
+.ag-grid-app .ag-row-even .calculated-true {
+  outline: none;
+  background-color: #fcf8e3;
+}
+
+/* pinned even calculated rows */
+.ag-grid-app .ag-pinned-left-cols-container .ag-row-even .calculated-true {
+  background-color: #f5edc8;
+}
+
+/* This is the header shading for a regular display column header */
+.ag-grid-app .ag-header .display-true,
+.ag-grid-app .ag-no-scrolls .ag-header-container .display-true {
+  background-color: #e6e6e6;
+}
+
+/* This is the header shading for a left pinned column header */
+.ag-grid-app .ag-pinned-left-header .display-true {
+  background-color: #d0d0d0;
+}
+
+.ag-grid-app .ag-row-odd .display-true {
+  outline: none;
+  background-color: #f6f6f6;
+}
+
+.ag-grid-app .ag-row-even .display-true{
+  outline: none;
+  background-color: #fff;
+}
+
+.ag-grid-app .ag-floating-top .ag-row {
+  background-color: #f0f0f0;
+}
+
+.ag-grid-app .ag-floating-bottom .ag-row {
+  background-color: #fff
+}
+
+.ag-grid-app .ag-floating-bottom .ag-cell {
+  box-shadow: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-right: 1px solid #bbb;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background-color: #fff;
+  font-weight: bolder;
+}
+
+.ag-grid-app .ag-floating-bottom .ag-cell:focus {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid #bbb;
+}
+
+.ag-grid-app .ag-overlay-loading-wrapper {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.ag-grid-app .ag-overlay-loading-center {
+  background-color: #fff;
+  border: 1px solid #808080;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #000;
+}
+
+.ag-grid-app .ag-overlay-no-rows-center {
+  background-color: #fff;
+  border: 1px solid #808080;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ag-grid-app .ag-group-cell-entire-row {
+  background-color: #f6f6f6;
+  padding: 2px;
+}
+
+.ag-grid-app .ag-footer-cell-entire-row {
+  background-color: #f6f6f6;
+  padding: 2px;
+}
+
+.ag-grid-app .ag-group-cell {
+  font-style: italic;
+}
+
+.ag-grid-app .ag-group-expanded {
+  padding-right: 4px;
+}
+
+.ag-grid-app .ag-group-contracted {
+  padding-right: 4px;
+}
+
+.ag-grid-app .ag-group-value {
+  padding-right: 2px;
+}
+
+.ag-grid-app .ag-group-checkbox {
+  padding-right: 2px;
+}
+
+.ag-grid-app .ag-footer-cell {
+  font-style: italic;
+}
+
+.ag-grid-app .ag-menu {
+  border: 1px solid #808080;
+  background-color: #f6f6f6;
+  cursor: default;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.ag-grid-app .ag-menu .ag-tab-header {
+  background-color: #e6e6e6;
+}
+
+.ag-grid-app .ag-menu .ag-tab {
+  padding: 6px 8px 6px 8px;
+  margin: 2px 2px 0px 2px;
+  display: inline-block;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+.ag-grid-app .ag-menu .ag-tab-selected {
+  background-color: #f6f6f6;
+  border-right: 1px solid #d3d3d3;
+  border-left: 1px solid #d3d3d3;
+  border-top: 1px solid #d3d3d3;
+}
+
+.ag-grid-app .ag-menu-separator {
+  border-top: 1px solid #d3d3d3;
+}
+
+.ag-grid-app .ag-menu-option-active {
+  background-color: #bde2e5;
+}
+
+.ag-grid-app .ag-menu-option-icon {
+  padding: 2px 4px 2px 4px;
+  vertical-align: middle;
+}
+
+.ag-grid-app .ag-menu-option-text {
+  padding: 2px 4px 2px 4px;
+  vertical-align: middle;
+}
+
+.ag-grid-app .ag-menu-option-shortcut {
+  padding: 2px 2px 2px 20px;
+  vertical-align: middle;
+}
+
+.ag-grid-app .ag-menu-option-popup-pointer {
+  padding: 2px 4px 2px 4px;
+  vertical-align: middle;
+}
+
+.ag-grid-app .ag-menu-option-disabled {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+
+.ag-grid-app .ag-menu-column-select-wrapper {
+  margin: 2px;
+}
+
+.ag-grid-app .ag-filter-checkbox {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.ag-grid-app .ag-filter-header-container {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.ag-grid-app .ag-filter-apply-panel {
+  border-top: 1px solid #d3d3d3;
+  padding: 2px;
+}
+
+.ag-grid-app .ag-filter-value {
+  margin-left: 4px;
+}
+
+.ag-grid-app .ag-selection-checkbox {
+  padding-right: 4px;
+}
+
+.ag-grid-app .ag-paging-panel {
+  padding: 4px;
+}
+
+.ag-grid-app .ag-paging-button {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.ag-grid-app .ag-paging-row-summary-panel {
+  display: inline-block;
+  width: 300px;
+}
+
+.ag-grid-app .ag-tool-panel {
+  background-color: #f6f6f6;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  border-top: 1px solid #808080;
+  color: #222;
+}
+
+.ag-grid-app .ag-status-bar {
+  color: #222;
+  background-color: #f6f6f6;
+  font-size: 14px;
+  height: 22px;
+  border-bottom: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+  padding: 2px;
+}
+
+.ag-grid-app .ag-status-bar-aggregations {
+  float: right;
+}
+
+.ag-grid-app .ag-status-bar-item {
+  padding-left: 10px;
+}
+
+.ag-grid-app .ag-column-drop-cell {
+  background: -webkit-linear-gradient(#fff, #d3d3d3);
+  background: -moz-linear-gradient(#fff, #d3d3d3);
+  background: -o-linear-gradient(#fff, #d3d3d3);
+  background: -ms-linear-gradient(#fff, #d3d3d3);
+  background: linear-gradient(#fff, #d3d3d3);
+  color: #000;
+  border: 1px solid #808080;
+}
+
+.ag-grid-app .ag-column-drop-cell-ghost {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+
+.ag-grid-app .ag-column-drop-cell-text {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.ag-grid-app .ag-column-drop-cell-button {
+  border: 1px solid transparent;
+  padding-left: 2px;
+  padding-right: 2px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.ag-grid-app .ag-column-drop-cell-button:hover {
+  border: 1px solid #808080;
+}
+
+.ag-grid-app .ag-column-drop-empty-message {
+  padding-left: 2px;
+  padding-right: 2px;
+  color: #808080;
+}
+
+.ag-grid-app .ag-column-drop-icon {
+  padding-right: 4px;
+}
+
+.ag-grid-app .ag-column-drop {
+  background-color: #f6f6f6;
+}
+
+.ag-grid-app .ag-column-drop-horizontal {
+  padding: 4px 4px 4px 4px;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+}
+
+.ag-grid-app .ag-column-drop-horizontal .ag-column-drop-cell {
+  padding: 2px;
+}
+
+.ag-grid-app .ag-column-drop-vertical {
+  padding: 4px 4px 10px 4px;
+  border-bottom: 1px solid #808080;
+}
+
+.ag-grid-app .ag-column-drop-vertical .ag-column-drop-cell {
+  margin-top: 2px;
+}
+
+.ag-grid-app .ag-column-drop-vertical .ag-column-drop-empty-message {
+  text-align: center;
+  padding: 5px;
+}
+
+.ag-grid-app .ag-pivot-mode {
+  border-bottom: 1px solid #808080;
+  padding: 4px;
+  background-color: #f6f6f6;
+}
+
+.ag-grid-app .ag-tool-panel .ag-column-select-panel {
+  border-bottom: 1px solid #808080;
+}
+
+.ag-grid-app .ag-select-agg-func-popup {
+  cursor: default;
+  position: absolute;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #808080;
+}
+
+.ag-grid-app .ag-select-agg-func-item {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.ag-grid-app .ag-select-agg-func-item:hover {
+  background-color: #bde2e5;
+}
+
+/* Center checkbox in top performer field  */
+.ag-grid-app .input-true.ag-cell[colid="topPerf"], .ag-grid-app .input-true.ag-cell[colid="noIncrease"]  {
+  text-align: center;
+}
+
+.ag-grid-app .align-center,
+.ag-grid-app .header-align-center {
+  text-align: center;
+}
+
+.ag-grid-app .align-right {
+  text-align: right;
+}
+
+.ag-grid-app .padding-left {
+  padding-left: 8px;
+}

@@ -1,0 +1,54 @@
+.navbar-app {
+  height: 32px;
+  margin: 0;
+  padding-left: 144px;
+  border: none;
+  border-top: 2px solid RGB(207,219,239);
+  border-bottom: 2px solid RGB(207,219,239);
+  background-color: RGB(62,74,102);
+  font-weight: lighter;
+}
+
+.navbar-app a {
+  text-decoration: none;
+  padding: 4px 12px;
+  color: white;
+}
+
+.navbar-app a:hover {
+  color: RGB(207,219,239);
+}
+
+/*
+.navbar-app ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+}
+
+.navbar-app li {
+  float: left;
+  text-align: center;
+  padding: 4px 12px;
+}
+
+.navbar-app .rightside {
+  float: right;
+  color: white;
+  padding-right: 80px;
+  cursor: default;
+}
+
+.navbar-app li a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-app li a:hover {
+  color: RGB(207,219,239);
+}
+
+*/

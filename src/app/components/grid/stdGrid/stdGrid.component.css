@@ -1,0 +1,36 @@
+.recs-info span {
+  line-height: 40px;
+  font-weight: bold;
+  padding-right: 10px;
+  font-style: italic;
+}
+
+.recs-info .btn {
+  margin-bottom: 8px;
+}
+
+.recs-warning {
+  color: #daa522;
+}
+
+.recs-error {
+  color: #b52d2a;
+}
+
+.recs-addDelete {
+  color: #31708f;
+}
+
+.table-footer {
+  margin-top: 4px;
+}
+
+.common-table-style {
+  -webkit-box-sizing:content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.table-body:focus {
+  outline: none;
+}

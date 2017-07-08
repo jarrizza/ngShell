@@ -1,0 +1,28 @@
+<select *ngIf="optionList.length"
+        name="elementName"
+        class="form-control"
+        (change)="moveOptionToFilter($event)"
+>
+  <option *ngIf="!filterList.length" value="">All</option>
+  <option *ngIf="filterList.length" selected value="">Select filter...</option>
+  <option *ngIf="filterList.length" value="clear">All</option>
+  <option *ngFor="let option of optionList"
+          value="{{ option }}">{{ option }}
+  </option>
+</select>
+<select *ngIf="!optionList.length && !filterList.length"
+        class="form-control">
+  <option value="">All</option>
+</select>
+
+<div *ngIf="filterList.length"
+     class="filtered-item-list">
+  <div *ngFor="let item of filterList; let i = index"
+       class="filtered-item pointer"
+       (click)="removeOptionFromFilter(i, item)"
+  >
+    <i class="pull-left pointer fa fa-check-square" aria-hidden="true"></i>
+    <span>{{ item }}</span>
+    <i class="pull-right pointer fa fa-trash" aria-hidden="true"></i>
+  </div>
+</div>

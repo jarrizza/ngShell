@@ -1,0 +1,10 @@
+.marker {
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.dim {
+  opacity: .75;
+}

@@ -1,0 +1,100 @@
+<div *ngIf="!hideTable">
+  <div class="table-container">
+    <div class="table-header clearfix">
+      <div class="recs-info pull-left">
+        <span [hidden]="(allowAddRecord === false)">
+          <button (click)="onAddRecord()" class="btn btn-default"><i class="fa fa-plus fa-lg" aria-hidden="true"></i> Add Record </button>
+        </span>
+        <span class="recs-count">{{ recordsFound }} Records</span>
+        <span [hidden]="recordsModified === 0" class="recs-modified">{{ recordsModified }} Modified</span>
+        <span [hidden]="recordsWithWarnings === 0" class="recs-warning">{{ recordsWithWarnings }} with Warning{{((recordsWithWarnings > 1) ? "s" : "")}}</span>
+        <span [hidden]="recordsWithErrors === 0" class="recs-error">{{ recordsWithErrors }} Invalid</span>
+        <span [hidden]="recordsAdded === 0" class="recs-addDelete">{{ recordsAdded }} to Add</span>
+        <span [hidden]="recordsDeleted === 0" class="recs-addDelete">{{ recordsDeleted }} to Delete</span>
+        <span [hidden]="!lastResult" class="recs-error">{{ lastResult }}</span>
+      </div>
+      <div [hidden]="rowData?.length === 0 && recordsDeleted === 0 && recordsAdded === 0" class="pull-right" role="group" aria-label="Import, Export, Save, Approve Buttons">
+
+        <span [hidden]="(allowSave === false || (recordsModified === 0 && recordsDeleted === 0 && recordsAdded === 0))">
+          <button class="btn btn-default" (click)="onSave()" [disabled]="(recordsWithErrors > 0)" ><i class="fa fa-download fa-lg" [title]="saveTooltip" aria-hidden="true"></i> Save</button>
+        </span>
+
+        <span [hidden]="(allowExport === false)">
+          <button class="btn btn-default" (click)="onExport()" [disabled]="recordsWithErrors > 0"><i class="fa fa-sign-out fa-lg" [title]="exportTooltip" aria-hidden="true"></i> Export</button>
+        </span>
+      </div>
+    </div>
+
+    <div #TABLE id="TABLE" class="table-body" [style.height.px]="tableHeight" (keydown)="onKeydown($event)"  tabindex="0" (focus)="onTableFocus($event)">
+      <ag-grid-angular
+        class="ag-grid-app"
+        style="width: 100%; height: 100%;"
+        [gridOptions]="gridOptions"
+        [columnDefs]="columnDefs"
+        [rowData]="rowData"
+        [floatingBottomRowData]="floatingBottomRowData"
+
+        (gridReady) = "onGridReady($event)"
+
+        (cellClicked) = "onCellClicked($event)"
+        (cellValueChanged) = "onCellValueChanged($event)"
+        (cellFocused) = "onCellFocused($event)"
+        (sortChanged) = "onSortChanged($event)"
+      ></ag-grid-angular>
+    </div>
+
+    <div class="table-footer clearfix">
+      <div [hidden]="(showResizeButtons === false)" class="pull-left">
+        <button class="btn btn-default" (click)="sizeToFit()">Size to Fit</button>
+        <button class="btn btn-default" (click)="autoSizeAll()">Auto-Size All</button>
+      </div>
+      <div [hidden]="(showLayoutButtons === false)" class="pull-right">
+        <button class="btn btn-default" (click)="saveModal.showModal()">Save Layout</button>
+        <button class="btn btn-default" (click)="loadModal.showModal()">Load Layout</button>
+      </div>
+    </div>
+  </div>
+
+  <modal-confirm #disapproveModal [modalTitle]="'Disapprove Record'" (onModalHidden)="onDisapprove($event)">
+    <p>Are you sure you want to reverse the approval of this record? The record data will be resaved before disapproval. </p>
+    <p>Press 'Ok' to <strong>disapprove.</strong></p>
+  </modal-confirm>
+
+  <modal-confirm #approveModal [modalTitle]="'Approve Record'" (onModalHidden)="onApprove($event)">
+    <p>Are you sure you want to approve this record? The record data will be saved before approval. </p>
+    <p>Press 'Ok' to <strong>approve.</strong></p>
+  </modal-confirm>
+
+  <modal-confirm #saveModal [modalTitle]="'Save Layout'" (onModalHidden)="onSaveLayout($event)">
+    <p>Save your current table layout to view later.</p>
+    <p>Enter a layout name:</p>
+    <input type="text"
+           class="form-control"
+           placeholder="Name"
+           maxlength="40"
+           [(ngModel)]="customLayoutName"
+    />
+  </modal-confirm>
+
+  <modal-confirm #loadModal [modalTitle]="'Load Layout'" (onModalHidden)="onLoadLayout($event)">
+    <div class="form-group">
+      <p>Load a previously saved layout.</p>
+      <p>Select an option from the dropdown below and click 'Ok':</p>
+      <select class="form-control" [(ngModel)]="customLayoutName">
+        <option selected value="">Please select...</option>
+        <option value="Default">Default</option>
+        <option *ngFor="let item of customLayoutList; let i = index" value="{{ item }}">{{ item }}</option>
+      </select>
+    </div>
+    <div [hidden]="!customLayoutName || customLayoutName === 'Default'">
+      <button class="btn btn-danger delete-filter" (click)="deleteCustomLayout()">Delete '{{ customLayoutName }}'</button>
+    </div>
+  </modal-confirm>
+
+</div>
+
+
+<div *ngIf="hideTable === true">
+  {{tableMessage}}
+</div>
+

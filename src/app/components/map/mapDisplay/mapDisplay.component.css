@@ -1,0 +1,33 @@
+
+#map {
+  position: absolute;
+  top: 112px;
+  bottom: 0;
+  width: 100%;
+}
+
+.on-map {
+  position: absolute;
+  z-index: 1000;
+}
+
+.map-button {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+}
+
+
+.leaflet-clickable {
+  cursor: crosshair !important;
+}
+
+.leaflet-container {
+  cursor: help !important;
+}
+
+.tab-list {
+  list-style-type: none;
+  margin-top: 9px;
+  margin-left: -33px;
+}

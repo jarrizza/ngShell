@@ -1,0 +1,12 @@
+.home {
+  min-width: 160px;
+  height: 100px;
+  position: absolute;
+  top: 101px;
+  left: 350px;
+  z-index: 2000;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  border: solid 1px #efefef;
+}

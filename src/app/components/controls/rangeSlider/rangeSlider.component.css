@@ -1,0 +1,66 @@
+.slider-container {
+  padding: 20px 12px 10px 10px;
+  margin: 0;
+  width: 100%;
+  height: 48px;
+  background-color: #ebebeb;
+}
+
+.start-date {
+  float: left;
+}
+
+.end-date {
+  float: right;
+  margin-top: -16px;
+}
+
+.slider {
+  margin-left: 82px;
+  margin-right: 50px;
+  height: 16px;
+  background-color: #707070;
+}
+
+.inner {
+  height: 16px;
+  background-color: #3e4a66;
+}
+
+.thumb {
+  background-color: #707070;
+  height: 28px;
+  width: 3px;
+}
+
+.leftThumb {
+  margin-top: -21px;
+}
+
+.rightThumb {
+  margin-top: -28px;
+}
+
+.date-input-container {
+  padding: 4px 10px 10px 10px;
+  width: 100%;
+  background-color: #ebebeb;
+}
+
+.left-header {
+  color: #1e4989;
+  font-weight: bold;
+  float: left;
+  margin-right: 10px;
+}
+
+.input-box {
+  border: solid 1px #1e4989;
+  width: 84px;
+  padding-left: 4px;
+}
+
+.right-input-box {
+  float: right;
+  margin-right: 49px;
+}

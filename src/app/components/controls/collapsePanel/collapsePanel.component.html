@@ -1,0 +1,13 @@
+<div #collapsePanel [className]="panelClass" >
+  <div class="panel-heading" role="button" (click)="toggleCollapse()">
+    <h3 class="panel-title noselect">
+      {{ panelHeading }}
+      <i *ngIf="headingIconClass" [className]="headingIconClass" aria-hidden="true"></i>
+      <i class="pull-right fa" [ngClass]="isCollapsed ? 'fa-chevron-left' : 'fa-chevron-down'" aria-hidden="true"></i>
+    </h3>
+  </div>
+
+  <div class="panel-body table-box" [collapse]="isCollapsed">
+    <ng-content></ng-content>
+  </div>
+</div>

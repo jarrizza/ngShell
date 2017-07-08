@@ -1,0 +1,9 @@
+.dateInput {
+  margin-top: 3px;
+  font-size: 14px;
+  background-color: white;
+  text-align: left;
+  display: inline-block;
+  outline: none;
+  color: #31708f;
+}

@@ -1,0 +1,4 @@
+<div #container class="dateInput" tabindex="0" (keydown)="navKeyListener($event)">
+  <span #dtString id="dtString"(click)="toggleCalendar()"> {{settingsService.popupCalendarDateString}}</span>
+  <i #calSymbol id="calSymbol" class="fa fa-calendar fa-fw" (click)="toggleCalendar()"></i>
+</div>
