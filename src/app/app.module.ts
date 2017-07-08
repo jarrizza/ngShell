@@ -1,3 +1,13 @@
+import 'leaflet';
+import 'leaflet.vectorgrid';
+import 'zone.js/dist/zone';
+import 'zone.js/dist/long-stack-trace-zone';
+import 'reflect-metadata';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
+// import 'leaflet/dist/leaflet.css';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -28,6 +38,11 @@ import { DeleteEditorComponent } from './components/grid/cellEditors/deleteEdito
 import { ToggleEditorComponent } from './components/grid/cellEditors/toggleEditor.component';
 import { YNButtonEditorComponent } from './components/grid/cellEditors/ynbuttonEditor.component';
 
+import { MapPageComponent } from './components/mapPage/mapPage.component';
+import { MapDisplayComponent } from './components/map/mapDisplay/mapDisplay.component';
+import { MapNavigatorComponent } from './components/map/mapNavigator/mapNavigator.component';
+import { MapToolsComponent } from './components/map/mapTools/mapTools.component';
+
 import { AppComponent } from './app.component';
 import { APIStateComponent } from './components/apiState/apiState.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -42,13 +57,15 @@ import { routing, appRoutingProviders } from './app.routes';
 import { ApiService } from './shared/services/api/api.service';
 import { GridService } from './shared/services/grid/grid.service';
 import { LocalStorageService } from './shared/services/common/localStorage.service';
+import { MapService } from './shared/services/map/map.service';
+import { GeocodingService } from './shared/services/map/geocoding.service';
 
 import { PropertyRecordService } from './shared/services/appRecords/propertyRecord.service';
 
 export class CustomOption extends ToastOptions {
-  positionClass = 'toast-bottom-right';
-  toastLife = 4500;
-  animate = 'fade';
+  positionClass: 'toast-bottom-right';
+  toastLife: 4500;
+  animate: 'fade';
 }
 
 @NgModule({
@@ -83,6 +100,12 @@ export class CustomOption extends ToastOptions {
     // App-Specific Pages/Components
     ChartPageComponent,
     PropertiesPageComponent,
+
+    // map components
+    MapPageComponent,
+    MapDisplayComponent,
+    MapNavigatorComponent,
+    MapToolsComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +128,8 @@ export class CustomOption extends ToastOptions {
   ],
   providers: [
     ApiService,
+    MapService,
+    GeocodingService,
     GridService,
     LocalStorageService,
     PropertyRecordService,

@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 
 import { MapDisplayComponent } from '../map/mapDisplay/mapDisplay.component';
-import { MapNavigatorComponent } from '../map/mapNavigator/mapNavigator.component';
+// import { MapNavigatorComponent } from '../map/mapNavigator/mapNavigator.component';
 
 @Component({
   selector: 'app-map-page',
@@ -9,8 +9,7 @@ import { MapNavigatorComponent } from '../map/mapNavigator/mapNavigator.componen
   styleUrls: ['./mapPage.component.css']
 })
 
-export class MapPageComponent implements OnInit {
-
+export class MapPageComponent implements OnInit, AfterViewChecked {
 
   @ViewChild(MapDisplayComponent) displayComponent: MapDisplayComponent;
 
@@ -19,6 +18,9 @@ export class MapPageComponent implements OnInit {
   ngOnInit() {
     console.log('ONINIT on mapPage called');
     this.displayComponent.refreshMap();
+  }
+
+  ngAfterViewChecked() {
   }
 
 }

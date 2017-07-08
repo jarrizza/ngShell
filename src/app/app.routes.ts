@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'map', component: MapPageComponent },
   { path: 'chart', component: ChartPageComponent },
-  { path: 'properties', component: PropertiesPageComponent },
+  { path: 'table', component: PropertiesPageComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: '' }
 ];
