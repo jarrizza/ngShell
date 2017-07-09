@@ -131,5 +131,5 @@ app.get(appInfo.path+'logininfo', function(req, res){
 
 /////////////////////////////////////////////// LISTENER
 app.listen(port, function() {
-  console.log('Mock API server available at localhost:'+port.toString()+appInfo.path);
+  console.log('PTN Mock API server available at localhost:'+port.toString()+appInfo.path);
 });
