@@ -20,7 +20,7 @@ export class ApiService{
   public token = null;
 
   // private instance variable to hold base url
-  private port = 3001;
+  private port = 3005;
   private baseUrl = 'http://localhost:'+this.port.toString()+'/api/';
 
 

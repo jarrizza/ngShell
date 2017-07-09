@@ -53,12 +53,6 @@ import { LocalStorageService } from './common/services/localStorage.service';
 import { MapService } from './common/services/map/map.service';
 import { GeocodingService } from './common/services/map/geocoding.service';
 
-/****** SAMPLE-specific */
-import { MapPageComponent } from './SAMPLE/components/mapPage/mapPage.component';
-import { ChartPageComponent } from './SAMPLE/components/chartPage/chartPage.component';
-import { GridPageComponent } from './SAMPLE/components/gridPage/gridPage.component';
-import { GridRecordService } from './SAMPLE/services/gridRecord.service';
-
 /****** SDPTN-specific */
 import { PropertyDetailsPageComponent } from './SDPTN/components/propertyDetailsPage/propertyDetailsPage.component';
 import { PropertySearchPageComponent } from './SDPTN/components/propertySearchPage/propertySearchPage.component';
@@ -106,11 +100,6 @@ export class CustomOption extends ToastOptions {
     MapNavigatorComponent,
     MapToolsComponent,
 
-    // SAMPLE-Specific Pages/Components
-    MapPageComponent,
-    ChartPageComponent,
-    GridPageComponent,
-
     //SDPTN-Specific Pages/Components
     PropertyDetailsPageComponent,
     PropertySearchPageComponent,
@@ -144,9 +133,6 @@ export class CustomOption extends ToastOptions {
     LocalStorageService,
     appRoutingProviders,
     { provide: ToastOptions, useClass: CustomOption },
-
-    // SAMPLE-Specific Services
-    GridRecordService,
 
     // SDPTN-Specific Services
     PropertyRecordService
