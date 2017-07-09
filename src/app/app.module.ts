@@ -60,6 +60,7 @@ import { GridPageComponent } from './SAMPLE/components/gridPage/gridPage.compone
 import { GridRecordService } from './SAMPLE/services/gridRecord.service';
 
 /****** SDPTN-specific */
+import { PropertyDetailsPageComponent } from './SDPTN/components/propertyDetailsPage/propertyDetailsPage.component';
 import { PropertySearchPageComponent } from './SDPTN/components/propertySearchPage/propertySearchPage.component';
 import { EventLineComponent } from './SDPTN/components/eventLine/eventLine.component';
 import { OwnerPiesComponent } from './SDPTN/components/ownerPies/ownerPies.component';
@@ -111,6 +112,7 @@ export class CustomOption extends ToastOptions {
     GridPageComponent,
 
     //SDPTN-Specific Pages/Components
+    PropertyDetailsPageComponent,
     PropertySearchPageComponent,
     EventLineComponent,
     OwnerPiesComponent
@@ -140,10 +142,15 @@ export class CustomOption extends ToastOptions {
     GeocodingService,
     GridService,
     LocalStorageService,
-    GridRecordService,
-    PropertyRecordService,
     appRoutingProviders,
-    { provide: ToastOptions, useClass: CustomOption }
+    { provide: ToastOptions, useClass: CustomOption },
+
+    // SAMPLE-Specific Services
+    GridRecordService,
+
+    // SDPTN-Specific Services
+    PropertyRecordService
+
   ],
   bootstrap: [AppComponent]
 })

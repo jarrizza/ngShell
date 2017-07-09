@@ -18,14 +18,14 @@ export class ChartPageComponent implements OnInit {
       this.refreshData();
 
       // change the data periodically
-      setInterval(() => this.refreshData(), 10000);
+      setInterval(() => this.refreshData(), 5000);
     }, 1000);
   }
 
   refreshData() {
     this.chartData = [];
     let total = 0.0;
-    let num = +(3 + Math.floor(Math.random() * 2));
+    let num = +(3 + Math.floor(Math.random() * 3));
     for (let i = 0; i < num; i++) {
       let value = Math.floor(Math.random() * 100);
       this.chartData.push([
