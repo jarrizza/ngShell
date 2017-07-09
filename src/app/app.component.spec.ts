@@ -3,9 +3,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { NavBarComponent } from './components/navbar/navbar.component';
-import { APIStateComponent } from './components/apiState/apiState.component';
+import { HeaderComponent } from './common/components/header/header.component';
+import { NavBarComponent } from './common/components/navbar/navbar.component';
+import { APIStateComponent } from './common/components/apiState/apiState.component';
 import { ApiService } from './shared/services/api/api.service';
 import { ApiDataStub } from './shared/services/api/api.data.stub';
 

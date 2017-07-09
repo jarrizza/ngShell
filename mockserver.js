@@ -18,6 +18,27 @@ var lists = require('./mockbackend/lists');
 var tableInfo = require('./mockbackend/tableinfo');
 var mockerBot = require('./mockbackend/mockerbot');
 
+var records = [
+  { recordNumber: 1000,
+    name: 'Mickey Mouse',
+    description: 'A friendly chap with an odd voice',
+    address: '#1, Corner of Happy and Nutty, Toontown, CA 92000-0000',
+    role: 'dev'
+  },
+  { recordNumber: 2000,
+    name: 'Daffy Duck',
+    description: 'Lovable Water dweller',
+    address: '555 0 Avenue, Universal, CA 92555-5555',
+    role: 'user'
+  },
+  { recordNumber: 3000,
+    name: 'Clark Kent',
+    description: 'Interplanetary traveller',
+    address: '777 Main Street, Apt A 123, Krypton, CA 92777-0007',
+    role: 'admin'
+  }
+  ];
+
 var properties = [
   { parcelNumber: 1010100100,
     primaryOwner: 'Mickey Mouse',
@@ -65,6 +86,19 @@ app.get('/api/info', function(req, res) {
   res.end(JSON.stringify(appInfo));
 });
 
+app.post(appInfo.path+'getGridRecords', function(req, res) {
+
+  console.log('Request for grid records HEADERS =>');
+  console.log(req.headers);
+  console.log('PARAMS =>');
+  console.log(req.params);
+  console.log('QUERY =>');
+  console.log(req.query);
+
+  res.end(JSON.stringify(records));
+});
+
+
 app.post(appInfo.path+'getPropertyRecords', function(req, res) {
 
   console.log('Request for property records HEADERS =>');
@@ -76,6 +110,7 @@ app.post(appInfo.path+'getPropertyRecords', function(req, res) {
 
   res.end(JSON.stringify(properties));
 });
+
 
 ///////////////////////////////////////////////// TABLE STRUCTURES
 app.get(appInfo.path+'tabletypes', function(req, res){
