@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/components/header/header.component';
 import { NavBarComponent } from './common/components/navbar/navbar.component';
 import { APIStateComponent } from './common/components/apiState/apiState.component';
-import { ApiService } from './shared/services/api/api.service';
-import { ApiDataStub } from './shared/services/api/api.data.stub';
+import { ApiService } from './common/services/api/api.service';
+import { ApiDataStub } from './common/services/api/api.data.stub';
 
 
 describe('AppComponent', () => {

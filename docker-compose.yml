@@ -1,0 +1,23 @@
+version: '2'
+services:
+  props:
+    image: unocha/alpine-nodejs:6
+    volumes:
+      - .:/srv/www
+      - ./env/dockerdev/opt/app/node.sh:/etc/services.d/node/run
+    environment:
+      PORT: 4200
+      NODE_ENV: local
+    expose:
+      - "4200"
+    networks:
+      service:
+        aliases:
+          - props
+          - props.hpc.vm
+networks:
+  service:
+    external:
+      name: hpcservice_service
+
+

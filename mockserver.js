@@ -4,10 +4,10 @@ var app = express();
 var path = require('path');
 var url = require('url');
 
-var port = 3001;
+var port = 3003;
 
 var appInfo = {
-  title: "PROGRAM",
+  title: "PROPS",
   source: "mock",
   host: "localhost:"+port.toString(),
   apiVersion: "1.0.0",
@@ -166,5 +166,5 @@ app.get(appInfo.path+'logininfo', function(req, res){
 
 /////////////////////////////////////////////// LISTENER
 app.listen(port, function() {
-  console.log('Mock API server available at localhost:'+port.toString()+appInfo.path);
+  console.log('PROPS Mock API server available at localhost:'+port.toString()+appInfo.path);
 });

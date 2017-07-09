@@ -4,12 +4,12 @@ import { MapDisplayComponent } from '../../../common/components/controls/map/map
 // import { MapNavigatorComponent } from '../map/mapNavigator/mapNavigator.component';
 
 @Component({
-  selector: 'app-map-page',
-  templateUrl: './mapPage.component.html',
-  styleUrls: ['./mapPage.component.css']
+  selector: 'app-filter-page',
+  templateUrl: './filterPage.component.html',
+  styleUrls: ['./filterPage.component.css']
 })
 
-export class MapPageComponent implements OnInit, AfterViewChecked {
+export class FilterPageComponent implements OnInit, AfterViewChecked {
 
   @ViewChild(MapDisplayComponent) displayComponent: MapDisplayComponent;
 

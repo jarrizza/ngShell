@@ -1,17 +1,17 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapPageComponent } from './mapPage.component';
+import { ProjectPageComponent } from './projectPage.component';
 
-describe('MapPageComponent', () => {
-  let component: MapPageComponent;
+describe('ProjectPageComponent', () => {
+  let component: ProjectPageComponent;
   let fixture: ComponentFixture<TestComponentWrapper>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         TestComponentWrapper,
-        MapPageComponent
+        ProjectPageComponent
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -33,7 +33,7 @@ describe('MapPageComponent', () => {
 
 @Component({
   selector: 'test-component-wrapper',
-  template: '<app-map-page></app-map-page>'
+  template: '<app-project-page></app-project-page>'
 })
 class TestComponentWrapper {
 }
