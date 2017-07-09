@@ -7,7 +7,7 @@ var url = require('url');
 var port = 3001;
 
 var appInfo = {
-  title: "PROGRAM",
+  title: "SAMPLE",
   source: "mock",
   host: "localhost:"+port.toString(),
   apiVersion: "1.0.0",
@@ -38,45 +38,6 @@ var records = [
     role: 'admin'
   }
   ];
-
-var properties = [
-  { parcelNumber: 1010100100,
-    primaryOwner: 'Mickey Mouse',
-    description: 'Lovely Spot for Minnie and me - SEC 5',
-    situsAddress: '1234 Fun Valley Lane, Toontown, CA 92000-0000',
-    mailingAddress: '56 Silly Street, Ste. 789',
-    document: 'A12345B678'
-  },
-  { parcelNumber: 2020200200,
-    primaryOwner: 'Daffy Duck',
-    description: 'LAND SECTION A123',
-    situsAddress: '555 0 Avenue, Universal, CA 92555-5555',
-    mailingAddress: '100 Sudden Valley, OrangeCone, CA 92555-5556',
-    document: 'B87AX17422'
-  },
-  { parcelNumber: 2020200201,
-    primaryOwner: 'Clark Kent',
-    description: 'Planetary Intersection, Hollywood West Bluff',
-    situsAddress: '777 Main Street, Apt A 123, Krypton, CA 92777-0007',
-    mailingAddress: '888 Side Street, Box 4, Krypton, CA 92777-0008',
-    document: 'G56312A441'
-  },
-  { parcelNumber: 3010100100,
-    primaryOwner: 'Speedy Gonzalez',
-    description: 'The fast lane',
-    situsAddress: '#5 Leftmost Lane, Anyroad, USA',
-    mailingAddress: '4002 Myhome Road, Watchamacallit Somewhere, District 7, 12345-0000',
-    document: 'A3444D1111'
-  },
-  { parcelNumber: 3210100300,
-    primaryOwner: 'Another Owner',
-    description: 'This is the description of the property which may be several lines long',
-    situsAddress: '120, Route 7 Drive, is the situs address',
-    mailingAddress: '101 corner of Happy Ave and Healthy Street is the mailing address',
-    document: 'A1DOCUMENT'
-  }
-
-];
 
 // Create the mock organization
 mockerBot.MockObject.create();
@@ -166,5 +127,5 @@ app.get(appInfo.path+'logininfo', function(req, res){
 
 /////////////////////////////////////////////// LISTENER
 app.listen(port, function() {
-  console.log('Mock API server available at localhost:'+port.toString()+appInfo.path);
+  console.log('ngShell Mock API server available at localhost:'+port.toString()+appInfo.path);
 });

@@ -59,16 +59,6 @@ import { ChartPageComponent } from './SAMPLE/components/chartPage/chartPage.comp
 import { GridPageComponent } from './SAMPLE/components/gridPage/gridPage.component';
 import { GridRecordService } from './SAMPLE/services/gridRecord.service';
 
-/****** SDPTN-specific */
-import { PropertyDetailsPageComponent } from './SDPTN/components/propertyDetailsPage/propertyDetailsPage.component';
-import { PropertySearchPageComponent } from './SDPTN/components/propertySearchPage/propertySearchPage.component';
-import { EventLineComponent } from './SDPTN/components/eventLine/eventLine.component';
-import { OwnerPiesComponent } from './SDPTN/components/ownerPies/ownerPies.component';
-import { PropertyRecordService } from './SDPTN/services/propertyRecord.service';
-
-/****** UNPROPS-specific */
-
-
 export class CustomOption extends ToastOptions {
   positionClass: 'toast-bottom-right';
   toastLife: 4500;
@@ -111,11 +101,6 @@ export class CustomOption extends ToastOptions {
     ChartPageComponent,
     GridPageComponent,
 
-    //SDPTN-Specific Pages/Components
-    PropertyDetailsPageComponent,
-    PropertySearchPageComponent,
-    EventLineComponent,
-    OwnerPiesComponent
   ],
   imports: [
     BrowserModule,
@@ -147,9 +132,6 @@ export class CustomOption extends ToastOptions {
 
     // SAMPLE-Specific Services
     GridRecordService,
-
-    // SDPTN-Specific Services
-    PropertyRecordService
 
   ],
   bootstrap: [AppComponent]
