@@ -1,5 +1,5 @@
 <div class="slider-container">
-  <div class="start-date">{{startDateString}}</div>
+  <div class="start-date">{{sliderStartDateStr}}</div>
   <div id="Slider" #Slider class="slider">
     <div class="inner" [ngStyle]="setInnerBar()"></div>
     <div id="LeftThumb" #LeftThumb draggable="true" (dragstart)="onLeftDragStart()" (drag)="onLeftDrag()"
@@ -7,12 +7,12 @@
     <div id="RightThumb" #RightThumb draggable="true" (dragstart)="onRightDragStart()" (drag)="onRightDrag()"
          (dragend)="onRightDragEnd()" class="thumb rightThumb" [ngStyle]="setRightThumb()"></div>
   </div>
-  <div class="end-date"> Today</div>
+  <div class="end-date">Today</div>
 </div>
 <div class="date-input-container">
   <div class="left-header">Time Span</div>
-  <input class="input-box" type="text" value="01/10/2017">
-  <input class="input-box right-input-box" type="text" value="02/10/2017">
+  <input class="input-box" type="text" [(ngModel)]="selStartDateStr" (change)="changeStartDateSel()">
+  <input class="input-box right-input-box" type="text" [(ngModel)]="selEndDateStr" (change)="changeEndDateSel()">
 </div>
 
 
