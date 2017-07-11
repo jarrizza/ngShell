@@ -9,6 +9,7 @@ import * as moment from 'moment';
 
 export class RangeSliderComponent implements OnInit {
   @ViewChild('Slider') slider: ElementRef;
+  @ViewChild('dragImg') dragImg: ElementRef;
 
   public leftThumbPos: number = 0;
   public rightThumbPos: number = 0;
@@ -96,7 +97,7 @@ export class RangeSliderComponent implements OnInit {
 
   private setLeftThumbToSelStartDate() {
     if (this.selStartDateStr === this.sliderEndDateStr) {
-      this.leftThumbPos = this.maxX - this.sliderLeftOffset - 3; // + 3 - Math.round(this.pixelsPerInc);
+      this.leftThumbPos = this.maxX - this.sliderLeftOffset - 3;
     }
     else {
       this.leftThumbPos = this.getLeftOffsetAtDate(this.selStartDateStr);
@@ -140,9 +141,14 @@ export class RangeSliderComponent implements OnInit {
     return {"margin-left": this.rightThumbPos+"px" }
   }
 
-  /////// LEFT THUMB DRAGGING
+  public onDragStart() {
+    if (event['dataTransfer']) {
+      event['dataTransfer'].setDragImage(this.dragImg.nativeElement,0,0);
+    }
+  }
+  public onDragEnd(event) {}
 
-  public onLeftDragStart() { }
+  /////// LEFT THUMB DRAGGING
 
   public onLeftDrag() {
     if (event['clientX']) {
@@ -156,11 +162,7 @@ export class RangeSliderComponent implements OnInit {
     }
   }
 
-  public onLeftDragEnd(event) {}
-
   /////// RIGHT THUMB DRAGGING
-
-  public onRightDragStart() { }
 
   public onRightDrag() {
     if (event['clientX']) {
@@ -173,8 +175,6 @@ export class RangeSliderComponent implements OnInit {
       }
     }
   }
-
-  public onRightDragEnd(event) { }
 
   public showValue(val): void {
     this.leftThumbPos = val;

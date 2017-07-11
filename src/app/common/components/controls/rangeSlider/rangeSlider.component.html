@@ -1,11 +1,12 @@
+<img id="dragImg" #dragImg class="dragImg" src=".\assets\images\logo.png">
 <div class="slider-container">
   <div class="start-date">{{sliderStartDateStr}}</div>
   <div id="Slider" #Slider class="slider">
     <div class="inner" [ngStyle]="setInnerBar()"></div>
-    <div id="LeftThumb" #LeftThumb draggable="true" (dragstart)="onLeftDragStart()" (drag)="onLeftDrag()"
-         (dragend)="onLeftDragEnd()" class="thumb leftThumb" [ngStyle]="setLeftThumb()"></div>
-    <div id="RightThumb" #RightThumb draggable="true" (dragstart)="onRightDragStart()" (drag)="onRightDrag()"
-         (dragend)="onRightDragEnd()" class="thumb rightThumb" [ngStyle]="setRightThumb()"></div>
+    <div id="LeftThumb" #LeftThumb draggable="true" (dragstart)="onDragStart()" (drag)="onLeftDrag()"
+         (dragend)="onDragEnd()" class="thumb leftThumb" [ngStyle]="setLeftThumb()"></div>
+    <div id="RightThumb" #RightThumb draggable="true" (dragstart)="onDragStart()" (drag)="onRightDrag()"
+         (dragend)="onDragEnd()" class="thumb rightThumb" [ngStyle]="setRightThumb()"></div>
   </div>
   <div class="end-date">Today</div>
 </div>
