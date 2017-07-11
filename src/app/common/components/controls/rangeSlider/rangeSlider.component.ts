@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'range-slider',
@@ -8,33 +9,123 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 export class RangeSliderComponent implements OnInit {
   @ViewChild('Slider') slider: ElementRef;
+  @ViewChild('dragImg') dragImg: ElementRef;
 
   public leftThumbPos: number = 0;
   public rightThumbPos: number = 0;
-  public startDateString: string = '01/18/1940';
-  public endDateString: string = 'today';
+  public sliderStartDateStr: string ;   // initialize to the first historical date of parcel
+  public sliderEndDateStr: string;      // initialize to today's daye
+  public selStartDateStr: string;       // initialize to just before the last CIO event
+  public selEndDateStr: string = '';    // initialize to today
 
   private sliderRect;
-  public maxX: number;
-  public minX: number;
+  private sliderLeftOffset = 94;
+  private sliderRightOffset = 94;
+  private maxX: number;
+  private minX: number;
+  private sliderPixels: number;
+  private sliderIncs: number;
+  private pixelsPerInc: number;
+  private increment: string;
 
   constructor() {
-    let self = this;
-    window.onresize = (e) => { self.updateSize(self); };
   }
 
   ngOnInit() {
-    this.updateSize(this);
-    this.leftThumbPos = this.maxX-this.minX-8;
-    this.rightThumbPos = this.maxX-this.minX;
-    this.setInnerBar();
+    let self = this;
+    self.sliderStartDateStr = '07/01/2017'; // '01/24/2012'; months // '01/24/1940'; years // first historical date of parcel
+    self.selStartDateStr = '07/11/2017';    // initialize to just before the last CIO event or start
+    self.sliderEndDateStr = self.selEndDateStr = self.convertDateToString(new Date());
+    self.updateSliderSize(self);
+    window.onresize = (e) => { self.updateSliderSize(self); };
   }
 
-  private updateSize(self) {
+  private convertDateToString(date: Date) {
+    return moment(date).format('MM/DD/YYYY');
+  }
+
+  private getTimeBetween(startDateStr, endDateStr, increment) {
+    let sdt = moment(new Date(startDateStr));
+    let edt = moment(new Date(endDateStr));
+    let diffDays = edt.diff(sdt,increment);
+    return diffDays;
+  }
+
+  public getSliderIncrements(self, inctype) {
+    self.increment = inctype;
+    self.sliderIncs = self.getTimeBetween(self.sliderStartDateStr, self.sliderEndDateStr, inctype);
+    if (self.sliderIncs === 0)
+      return 0;
+    return self.sliderPixels/self.sliderIncs;
+  }
+
+
+  private updateSliderSize(self) {
     self.sliderRect = self.slider.nativeElement.getBoundingClientRect();
     self.maxX = self.sliderRect.right;
     self.minX = self.sliderRect.left;
+    self.sliderPixels = self.maxX - self.minX;
+    self.pixelsPerInc = self.getSliderIncrements(self, "days");
+
+    self.setLeftThumbToSelStartDate();
+    self.setRightThumbToSelEndDate();
+    self.setInnerBar();
   }
+
+  private getDateAtLeftOffset(offset) {
+    let sliderPos = offset - this.sliderLeftOffset;
+    if (sliderPos <= 0 || this.pixelsPerInc === 0) {
+      return this.sliderStartDateStr;
+    }
+    let endOffset = this.maxX - this.sliderLeftOffset - this.sliderRightOffset - 3;
+    if (sliderPos >= endOffset) {
+      return this.sliderEndDateStr;
+    }
+    let daysFromStart = Math.round(sliderPos/this.pixelsPerInc) + 1;
+    let sdt = moment(new Date(this.sliderStartDateStr));
+    return sdt.add(daysFromStart, 'days').format('MM/DD/YYYY');
+  }
+
+  private getLeftOffsetAtDate(dateStr) {
+    let sdt = moment(new Date(this.sliderStartDateStr));
+    let edt = moment(new Date(dateStr));
+    let diffDays = edt.diff(sdt,'days');
+    if (diffDays < 1) diffDays = 0;
+    let pixelsToStart: number = this.pixelsPerInc * diffDays;
+    return Math.round(this.minX + pixelsToStart - this.sliderLeftOffset);
+  }
+
+  private setLeftThumbToSelStartDate() {
+    if (this.selStartDateStr === this.sliderEndDateStr) {
+      this.leftThumbPos = this.maxX - this.sliderLeftOffset - 3;
+    }
+    else {
+      this.leftThumbPos = this.getLeftOffsetAtDate(this.selStartDateStr);
+    }
+  }
+
+  private setRightThumbToSelEndDate() {
+    if (this.selEndDateStr === this.sliderEndDateStr) {
+      this.rightThumbPos = this.maxX - this.sliderLeftOffset + 3;
+    }
+    else {
+      this.rightThumbPos = this.getLeftOffsetAtDate(this.selEndDateStr);
+    }
+  }
+
+  // Change slider display based on selection date changes
+
+  public changeStartDateSel() {
+    this.setLeftThumbToSelStartDate();
+    this.setInnerBar();
+  }
+
+  public changeEndDateSel() {
+    this.setRightThumbToSelEndDate();
+    this.setInnerBar();
+  }
+
+  // Drawing the thumbs and inner bar based on known position
 
   public setInnerBar(): any {
     let distance = this.rightThumbPos - this.leftThumbPos;
@@ -45,13 +136,19 @@ export class RangeSliderComponent implements OnInit {
     return {"margin-left": this.leftThumbPos+"px" }
   }
 
+
   public setRightThumb(): any {
     return {"margin-left": this.rightThumbPos+"px" }
   }
 
-  /////// LEFT THUMB DRAGGING
+  public onDragStart() {
+    if (event['dataTransfer']) {
+      event['dataTransfer'].setDragImage(this.dragImg.nativeElement,0,0);
+    }
+  }
+  public onDragEnd(event) {}
 
-  public onLeftDragStart() { }
+  /////// LEFT THUMB DRAGGING
 
   public onLeftDrag() {
     console.log('onLeftDrag EVENT');
@@ -61,15 +158,12 @@ export class RangeSliderComponent implements OnInit {
       let d = this.rightThumbPos - startpt;
       if (d > 3 && startpt > -4) {
         this.leftThumbPos = startpt;
+        this.selStartDateStr = this.getDateAtLeftOffset(startpt);
       }
     }
   }
 
-  public onLeftDragEnd(event) {}
-
   /////// RIGHT THUMB DRAGGING
-
-  public onRightDragStart() { }
 
   public onRightDrag() {
     if (event['clientX']) {
@@ -78,6 +172,7 @@ export class RangeSliderComponent implements OnInit {
       let d = endpt - this.leftThumbPos - 3;
       if (d > 0 && endpt < (this.maxX - this.minX)) {
         this.rightThumbPos = endpt;
+        this.selEndDateStr = this.getDateAtLeftOffset(endpt);
       }
     }
   }
@@ -88,3 +183,4 @@ export class RangeSliderComponent implements OnInit {
     this.leftThumbPos = val;
   }
 }
+
